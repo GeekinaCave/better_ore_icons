@@ -1,2 +1,2 @@
-# better_ore_icons
-Because this is still not a thing for some reason...
+# My_own_pollution
+an alternative version for the sprite of pollution in the map game.

@@ -1,0 +1,11 @@
+{
+  "name": "better_ore_icons",
+  "title": "Better Ore Icons",
+  "version": "0.16.0",
+  "author": "GeekinaCave",
+  "contact": "jarelton85@gmail.com",
+  "homepage": "https://github.com/GeekinaCave/better_ore_icons",
+  "description": "Because this is still not a thing for some reason...",
+  "factorio_version": "0.16",
+  "dependencies": [ "base" ]
+}
