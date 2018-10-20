@@ -1,2 +1,4 @@
-# My_own_pollution
-an alternative version for the sprite of pollution in the map game.
+# Better ore Icons
+Because this is still not a thing for some reason...
+
+It adds the updated icons of ores in factorio, compatible with "Realistic Ores" too.
