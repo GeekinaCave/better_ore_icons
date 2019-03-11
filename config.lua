@@ -1,1 +1,0 @@
-RealisticOresicons_enabled = false
