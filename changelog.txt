@@ -1,0 +1,9 @@
+---------------------------------------------------------------------------------------------------
+Version: 0.17.1
+Date: 10. 03. 2019
+  Features:
+    - First version for Factorio 0.17.x.
+    - Added changelog.
+    - Added thumbnail.
+    - Revamped Code.
+    - Support for "Realistic Ores"
