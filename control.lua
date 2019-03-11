@@ -1,38 +1,9 @@
-local function parseVersionNumber(versionNumber)
-	local majorVersion = tonumber(string.match(versionNumber, "^(%d+)%."))
-	local minorVersion = tonumber(string.match(versionNumber, "%.(%d+)$"))
-	return majorVersion, minorVersion
-end
+-- for testing icons, dont pay attention
 
-local function isTimeToRechart(oldVersionNumber, newVersionNumber)
-	local oldMajorVersion, oldMinorVersion = parseVersionNumber(oldVersionNumber)
-	local newMajorVersion, newMinorVersion = parseVersionNumber(newVersionNumber)
-	return oldMajorVersion < newMajorVersion or (oldMajorVersion == 1 and oldMinorVersion == 0)
-end
-
-
-
--- script.on_init(
--- 	function()
--- 		if game.active_mods["RealisticOres"] then
--- 			RealisticOresicons_enabled = true
--- 		end
--- 	end
--- )
-
-script.on_configuration_changed(
-	function(data)
-		if data.mod_changes == nil then return end
-		local modChange = data.mod_changes["better_ore_icons"]
-		if modChange == nil then return end
-		local oldVersion = modChange.old_version
-		local newVersion = modChange.new_version
-		if oldVersion == nil then
-			game.print("Rechartimg map upon instalation of mod 'Better Ore Icons'...")
-			game.forces.player.rechart()
-		elseif isTimeToRechart(oldVersion, newVersion) then
-			game.print("Rechartimg map upon update of mod 'Better Ore Icons' (" .. oldVersion .. "-->" .. newVersion .. ")...")
-			game.forces.player.rechart()
-		end
-	end
-)
+-- script.on_event(defines.events.on_player_created, function(event)
+-- 	local player = game.players[event.player_index]
+-- 	player.insert{name="iron-ore", count=10}
+-- 	player.insert{name="copper-ore", count=10}
+-- 	player.insert{name="stone", count=10}
+-- 	player.insert{name="coal", count=10}
+-- end)
