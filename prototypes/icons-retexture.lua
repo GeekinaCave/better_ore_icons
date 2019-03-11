@@ -1,26 +1,16 @@
-local function getNewTexturePath(oldTexturePath)
-	 if RealisticOresicons_enabled == true then
-		local newTexturePath,changes = string.gsub(oldTexturePath, "^__base__/graphics/icons", "__better_ore_icons__/graphics/icons-RealisticOres")
-		return newTexturePath
-	 else
-		local newTexturePath,changes = string.gsub(oldTexturePath, "^__base__", "__better_ore_icons__")
-		return newTexturePath
-	 end
+local function ReplaceOreIcon(OreName)
+	local OreItem = data.raw.item[OreName]
+	OreItem.icon = string.gsub(OreItem.icon, "^__base__", "__better_ore_icons__")
+
+	if OreName == "coal" then
+		OreItem.dark_background_icon = string.gsub(OreItem.dark_background_icon, "^__base__", "__better_ore_icons__")
+	end
+	if OreName == "iron-ore" or "copper-ore" and mods["RealisticOres"] then
+		OreItem.icon = string.gsub(OreItem.icon, "^__RealisticOres__/graphics/icons", "__better_ore_icons__/graphics/icons-RealisticOres")
+	end
 end
 
-local function changeOreIcons(oreName)
-	local oreItem = data.raw.item[oreName .. "-ore"]
-	oreItem.icon = getNewTexturePath(oreItem.icon)
-end
-
-changeOreIcons("iron")
-changeOreIcons("copper")
-
-
-local oreItem = data.raw.item["coal"]
-oreItem.icon = getNewTexturePath(oreItem.icon)
-oreItem.dark_background_icon = getNewTexturePath(oreItem.dark_background_icon)
-
-local oreItem = data.raw.item["stone"]
-oreItem.icon = getNewTexturePath(oreItem.icon)
-
+ReplaceOreIcon("stone")
+ReplaceOreIcon("coal")
+ReplaceOreIcon("iron-ore")
+ReplaceOreIcon("copper-ore")
